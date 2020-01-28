@@ -16,15 +16,16 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/characters' do
-    @character = Character.new(name: params["name"], type: params["class"], gender: params["gender"])
+    @character = Character.new(name: params["name"], subclass: params["subclass"], gender: params["gender"])
     @character.save
-    session[:character_id] = character.id
+    session[:character_id] = @character.id
     
-    redirect '/character/list'
+    redirect '/characters/list'
   end
   
   get '/characters/list' do
     
+    @character = Character.find(session[:user_id])
     erb :'/characters/list'
   end
 
@@ -43,9 +44,10 @@ class ApplicationController < Sinatra::Base
 
   get '/sessions/login' do
 
-    # the line of code below render the view page in app/views/sessions/login.erb
     erb :'sessions/login'
   end
+  
+
 
   post '/sessions' do
     @user = User.find_by(email: params[:email], password: params[:password])
