@@ -1,0 +1,30 @@
+<h2>Create Character:</h2>
+
+<form action='/characters' method="POST">
+  <label>Name</label><br>
+  
+  <input type="text" name="name"><br>
+  
+  <label>Class</label><br>
+ 
+  <input list="class" name="class"><br>
+    <datalist id="class">
+    <option value="Cleric">
+    <option value="Warrior">
+    <option value="Thief">
+    <option value="Deprived">
+    <option value="Sorcerer">
+  </datalist>
+  
+  
+  
+  <label>Gender</label><br>
+  
+  <input list="gender" name="gender">
+    <datalist id="gender">
+    <option value="Male">
+    <option value="Female">
+  </datalist>
+  
+  <input type="submit" value="Create">
+</form>

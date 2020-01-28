@@ -9,6 +9,24 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :home
   end
+  
+  get '/characters/create' do
+    
+    erb :'/characters/create'
+  end
+  
+  post '/characters' do
+    @character = Character.new(name: params["name"], type: params["class"], gender: params["gender"])
+    @character.save
+    session[:character_id] = character.id
+    
+    redirect '/character/list'
+  end
+  
+  get '/characters/list' do
+    
+    erb :'/characters/list'
+  end
 
   get '/registrations/signup' do
 
