@@ -25,7 +25,7 @@ class ApplicationController < Sinatra::Base
   
   get '/characters/list' do
     
-    @character = Character.find(session[:user_id])
+    @character = Character.find(session[:character_id])
     erb :'/characters/list'
   end
 
