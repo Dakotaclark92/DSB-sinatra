@@ -25,5 +25,16 @@ class CharacterController < ApplicationController
     erb :'/characters/list'
   end
   
+  get '/characters/edit' do
+    
+    @character = Character.find_by_id(session[:character_id])
+    erb :'/characters/edit'
+  end
+  
+  get '/characters/delete' do
+    session.clear
+    redirect '/characters/list'
+  end
+  
   
 end

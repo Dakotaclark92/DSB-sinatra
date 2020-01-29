@@ -1,16 +1,17 @@
  <head>
-    <title>Dark Souls Beyond</title>
+    <title>Dark Souls Beyond Edit Character</title>
   </head>
 <body>
 
-<h2>Create Character:</h2>
+<h2>Edit Character:</h2>
 
-  <form action='/characters' method="POST">
-  <label>Name</label><br>
+<form action='/characters' method="POST">
+  
+  Change <%=@character.name%> to:<br>
   
   <input type="name" name="name"><br>
   
-  <label>Class</label><br>
+  Change <%=@character.subclass%> to:<br>
  
   <input list="subclass" name="subclass"><br>
     <datalist id="subclass">
@@ -22,17 +23,15 @@
   </datalist>
   
   
-  <label>Gender</label><br>
+  Change <%=@character.gender%> to:<br>
   
   <input list="gender" name="gender">
     <datalist id="gender">
     <option value="Male">
     <option value="Female">
-  </datalist>
+  </datalist><br>
   
-  <input type="submit" value="Create">
-</form>
-
-       <img src="https://i.pinimg.com/474x/d7/4b/ba/d74bba22f2838922fb7bb5c2744d431b--dark-souls--armor-videogames.jpg">
+  <input type="submit" value="Edit">
+  </form>
     
 </body>
