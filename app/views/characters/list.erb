@@ -1,4 +1,15 @@
-
+<% if session.has_key?(:character_id) %>
+Your character list
+<br>
   your character: <%=@character.name%>, is a <%=@character.gender%>, <%=@character.subclass%>.<br>
 <a href="/characters/edit">Edit</a><br>
-<a href="/characters/delete">Delete</a>
+<a href="/characters/delete">Delete</a><br>
+<a href="/users/home">Home</a>
+<%elsif session.has_key?(:character_id) == nil %>
+  <h3>"You have no characters created"</h3>
+  <a href="/characters/create">Create Character</a><br>
+  <a href="/users/home">Home</a><br>
+  <a href="/sessions/logout">Logout</a>
+<% else %>
+  <a href="/characters/create">Create Character</a>
+<% end %><br>
