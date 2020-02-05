@@ -32,7 +32,8 @@ class CharacterController < ApplicationController
   end
   
   get '/characters/delete' do
-    Character.delete(session[:character_id])
+    @character = Character.find_by_id(:character_id)
+    Character.delete(:character_id)
     redirect '/users/home'
   end
   
